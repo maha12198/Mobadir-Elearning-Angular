@@ -150,23 +150,23 @@
      <section class="contact" id="contact">
         <h1 class="heading"> contact us  </h1>
         <div class="container">
-           <div class="contact-info-container">
+           <div class="contact-info-container" *ngFor="let user of UsersList">
               <div class="box">
                  <i class="fas fa-phone"></i>
                  <h3>phone</h3>
-                 <p>+123-456-7890</p>
-                 <p>+111-222-3333</p>
+                 <p>{{user.id}}</p>
+                 <!-- <p>+111-222-3333</p> -->
               </div>
               <div class="box">
                  <i class="fas fa-envelope"></i>
                  <h3>email</h3>
-                 <p>DalgonaCoffee@gmail.com</p>
-                 <p>username13@gmail.com</p>
+                 <p>{{user.email}}</p>
+                 <!-- <p>username13@gmail.com</p> -->
               </div>
               <div class="box">
                  <i class="fas fa-map"></i>
                  <h3>address</h3>
-                 <p>Cairo, Egypt - 400104</p>
+                 <p>{{user.passwordEncrypted}}</p>
               </div>
            </div>
         </div>

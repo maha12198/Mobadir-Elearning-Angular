@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { IUser } from '../models/IUser';
+
 
 @Component({
   selector: 'app-home',
@@ -8,5 +11,30 @@ import { Component } from '@angular/core';
 
 
 export class HomeComponent {
+
+  // declare variables
+  UsersList: IUser[] | any ;
+
+  constructor(private api : ApiService) {}
+
+  ngOnInit() {
+    
+    // call the api service
+    this.api.GetUsers().subscribe(
+      {
+        next: (res)=> { this.UsersList = res;
+                        // for testing purposes
+                        console.log(this.UsersList);
+                        for (var user of this.UsersList) 
+                        {
+                          console.log(user.Email);
+                        }
+                      },
+        error: (err)=>{ console.log(err);}               
+      }
+      );  
+
+  }
+
 
 }
